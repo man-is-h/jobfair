@@ -19,6 +19,6 @@ from jobfair_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('jobfair_app/',include('jobfair_app.urls')),
+    path('jobfair_app/',include('jobfair_app.urls',namespace = 'jobfair_app')),
     path('',views.index, name = 'index'),
 ]

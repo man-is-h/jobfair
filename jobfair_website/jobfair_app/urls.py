@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from jobfair_app import views
+
+app_name = 'jobfair_app'
+
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('list/',views.ProjectListView.as_view(), name = 'list'),
+    path('list/<pk>/',views.ProjectDetailView.as_view(), name = 'detail'),
 ]

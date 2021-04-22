@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+  <div class="jumbotron">
+    <h1>Welcome to Project Detail Page</h1>
+    <h2>Project Details:</h2>
+    <p>Name: {{project_detail.name}}</p>
+    <p>stipend: {{project_detail.stipend}}</p>
+    <p>description:</p>
+    <p>{{project_detail.description}}</p>
+
+    <h2>Project alloted to:</h2>
+
+    {% for freelancer in project_detail.freelancers.all %}
+      <p>{{freelancer.name}} with rating {{freelancer.rating}}</p>
+    {% endfor %}
+  </div>
+{% endblock %}

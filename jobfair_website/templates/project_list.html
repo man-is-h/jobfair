@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+  <h1>Welcome to list of all the projects</h1>
+
+  <ol>
+    {% for project in project_list %}
+      <h2> <li> <a href="{{project.id}}">{{project.name}}</a></li> </h2>
+    {% endfor %}
+  </ol>
+{% endblock %}
