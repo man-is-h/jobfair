@@ -10,9 +10,17 @@
     <nav class = "navbar navbar-default navbar-static-top">
       <ul>
         <li> <a class = "navbar-brand" href="{% url 'jobfair_app:index' %}">Index</a> </li>
-        <li> <a class = "navbar-link" href="{% url 'jobfair_app:list' %}">Projects</a> </li>
+        <li> <a class = "navbar-link" href="{% url 'jobfair_app:project_list' %}">Projects</a> </li>
+        <li> <a class = "navbar-link" href="{% url 'jobfair_app:freelancer_list' %}">Freelancers</a> </li>
+        <li> <a class = "navbar-link" href="{% url 'jobfair_app:register' %}">Register</a> </li>
         <li> <a class = "navbar-link" href="{% url 'admin:index' %}">Admin</a> </li>
-        <li> <a href="#"></a> </li>
+
+        {% if user.is_authenticated %}
+          <li> <a href="{% url 'jobfair_app:logout' %}">{{user.username}} Logout</a> </li>
+        {% else %}
+          <li> <a href="{% url 'jobfair_app:user_login' %}">Login</a> </li>
+        {% endif %}
+
       </ul>
 
     </nav>

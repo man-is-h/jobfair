@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+  <h1>Welcome to list of all the Freelancers</h1>
+
+  <ol>
+    {% for freelancer in freelancer_list %}
+      <h2> <li> <a href="{% url 'jobfair_app:freelancer_detail' pk=freelancer.id %}">{{freelancer.name}}</a></li> </h2>
+    {% endfor %}
+  </ol>
+{% endblock %}

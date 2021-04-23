@@ -21,6 +21,11 @@ app_name = 'jobfair_app'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('list/',views.ProjectListView.as_view(), name = 'list'),
-    path('list/<pk>/',views.ProjectDetailView.as_view(), name = 'detail'),
+    path('project_list/',views.ProjectListView.as_view(), name = 'project_list'),
+    path('project_list/<pk>/',views.ProjectDetailView.as_view(), name = 'project_detail'),
+    path('freelancer_list/',views.FreelancerListView.as_view(), name = 'freelancer_list'),
+    path('freelancer_list/<pk>/',views.FreelancerDetailView.as_view(), name = 'freelancer_detail'),
+    path('register', views.register, name='register'),
+    path('logout', views.user_logout, name='logout'),
+    path('login', views.user_login, name='user_login'),
 ]
