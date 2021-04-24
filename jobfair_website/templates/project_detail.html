@@ -14,5 +14,13 @@
     {% for freelancer in project_detail.freelancers.all %}
       <p>{{freelancer.name}} with rating {{freelancer.rating}}</p>
     {% endfor %}
+
+    <div class="container">
+      <p> <a class = 'btn btn-warning' href="{% url 'jobfair_app:project_update' pk=project_detail.pk %}"> Update</a> </p>
+    </div>
+
+    <div class="container">
+      <p> <a class = 'btn btn-danger' href="{% url 'jobfair_app:project_delete' pk=project_detail.pk %}"> Delete</a> </p>
+    </div>
   </div>
 {% endblock %}

@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic import View, TemplateView, ListView, DetailView
+from django.views.generic import (View, TemplateView,
+                                    ListView, DetailView,
+                                    CreateView, UpdateView,
+                                    DeleteView)
 from jobfair_app import models
 from jobfair_app.forms import UserForm, UserProfileInfoForm
 
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
@@ -102,3 +105,18 @@ class FreelancerDetailView(DetailView):
     model = models.Freelancer
     template_name = 'freelancer_detail.html'
     context_object_name = 'freelancer_detail'
+
+class ProjectCreateView(CreateView):
+    model = models.Project
+    fields = ('name', 'description', 'stipend')
+    template_name = 'project_form.html'
+
+class ProjectUpdateView(UpdateView):
+    model = models.Project
+    fields = ('name','description','stipend')
+    template_name = 'project_form.html'
+
+class ProjectDeleteView(DeleteView):
+    model = models.Project
+    success_url = reverse_lazy('jobfair_app:project_list')
+    template_name = 'project_confirm_delete.html'
