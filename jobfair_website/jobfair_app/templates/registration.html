@@ -7,17 +7,19 @@
 
   </head>
   <body>
-    <form>
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
       <h1>SignUp</h1>
-      <input type="text" name="" placeholder="Username">
+      <input type="text" name="username" placeholder="Username">
       <input type="text" name="" list="tech" placeholder="Want to become">
       <datalist id="tech">
         <option>FreeLancer</option>
         <option>Employer</option>
       </datalist>
       <input type="email" name="" placeholder="Email">
-      <input type="password" name="" placeholder="Password">
+      <input type="password" name="password" placeholder="Password">
       <input type="password" name="" placeholder="Confirm Password">
+      <input type="number" name="rating" placeholder="rating">
       <button type="submit">SignUp</button>
     </form>
   </body>
