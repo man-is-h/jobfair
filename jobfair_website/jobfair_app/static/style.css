@@ -21,12 +21,13 @@ body{
 }
 
 .avatar{
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     position: absolute;
-    top: -50%;
-    left: calc(50% - 50px);
+    top: -50px;
+    left: 90px;
+    left: calc(50% -50px);
 }
 
 .h1{
