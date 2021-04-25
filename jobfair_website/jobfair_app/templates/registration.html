@@ -1,19 +1,24 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignUp</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
 
-{% block body_block %}
-  <div class="jumbotron">
-    {% if registered %}
-      <h1>Thank You for registering</h1>
-    {% else %}
-        <h1>Register Here!</h1>
-        <h3>Fill out the registration form</h3>
-
-        <form class="" enctype="multipart/form-data" method="post">
-          {% csrf_token %}
-          {{ user_form.as_p }}
-          {{ profile_form.as_p }}
-          <input type="submit" name="" value="Register">
-        </form>
-    {% endif %}
-  </div>
-{% endblock %}
+  </head>
+  <body>
+    <form>
+      <h1>SignUp</h1>
+      <input type="text" name="" placeholder="Username">
+      <input type="text" name="" list="tech" placeholder="Want to become">
+      <datalist id="tech">
+        <option>FreeLancer</option>
+        <option>Employer</option>
+      </datalist>
+      <input type="email" name="" placeholder="Email">
+      <input type="password" name="" placeholder="Password">
+      <input type="password" name="" placeholder="Confirm Password">
+      <button type="submit">SignUp</button>
+    </form>
+  </body>
+</html>
