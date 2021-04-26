@@ -1,7 +1,40 @@
-{% extends "base.html" %}
-{% block body_block %}
-  <h1>Testing Template View. Welcome to Index page of Job Fair, Now you are using Templates to access these</h1>
-  <div class="jumbotron">
-    <h1>HOME Page</h1>
-  </div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="navbar">
+        <a href="{% url 'jobfair_app:index' %}">
+          <img class="logo" src="{% static 'jb.jpg' %}">
+        </a>
+        <ul>
+          <li><a class="active" href="{% url 'jobfair_app:project_create' %}">Create Project</a></li>
+          <li><a href="{% url 'jobfair_app:register' %}">Register</a></li>
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          {% if user.is_authenticated %}
+          <li> <a href="{% url 'jobfair_app:logout' %}">{{user.username}} Logout</a> </li>
+          {% else %}
+          <li> <a href="{% url 'jobfair_app:user_login' %}">Login</a> </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <div class="center">
+        <h1>Welcome To JOBFAIR</h1>
+        <h2>Join with the biggest job search and recruitement</h2>
+        <div class="buttons">
+          <a href="{% url 'jobfair_app:freelancer_list' %}">
+            <button>Freelancers</button>
+          </a>
+          <a href="{% url 'jobfair_app:project_list' %}">
+            <button class="btn">Projects</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
