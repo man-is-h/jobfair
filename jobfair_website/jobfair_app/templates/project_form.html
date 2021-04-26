@@ -3,7 +3,7 @@
   <head>
     <title>Create Project</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'project_create.css' %}">
+    <link rel="stylesheet" type="text/css"  href="{% static 'project_create.css' %}">
   </head>
   <body>
 
@@ -23,12 +23,12 @@
           {% endif %}
         </ul>
       </nav>
-    </div>
+    
 
     <div class="regform">
       <h1>Create Project</h1>
     </div>
-    <div class="mane">
+    <div class="main">
       <form>
         <div id="name">
           <h2 class="name">Name</h2>
@@ -48,10 +48,24 @@
         <input class="skills" type="text" name="skills">
 
         <h2 class="name">Description</h2>
-        <input class="desc" type="text" name="desc">
         <textarea class="textarea"></textarea>
+
+        <h2 id="student">Vote</h2>
+        <label class="radio">
+          <input class="radio-one" type="radio" checked="checked" name="">
+          <span class="checkmark"></span>
+          Upvote
+        </label>
+        <label class="radio">
+          <input class="radio-two" type="radio" name="">
+          <span class="checkmark"></span>
+          Downvote
+        </label>
+
+        <button type="submit">Submit</button>
+
       </form>
     </div>
-
+  </div>
   </body>
 </html>
