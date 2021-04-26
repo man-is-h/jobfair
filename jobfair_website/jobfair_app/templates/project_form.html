@@ -1,16 +1,57 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Project</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project_create.css' %}">
+  </head>
+  <body>
 
-{% block body_block %}
-  <h1>
-    {% if not form.instance.pk %}
-    Create Project
-    {% else %}
-    Update Project
-    {% endif %}
-  </h1>
-  <form class="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" name="" value="submit">
-  </form>
-{% endblock %}
+    <div class="wrapper">
+      <nav class="navbar">
+        <a href="{% url 'jobfair_app:index' %}">
+          <img class="logo" src="{% static 'jb.jpg' %}">
+        </a>
+        <ul>
+          <li><a class="active" href="{% url 'jobfair_app:project_create' %}">Create Project</a></li>
+          <li><a href="{% url 'jobfair_app:register' %}">Register</a></li>
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          {% if user.is_authenticated %}
+          <li> <a href="{% url 'jobfair_app:logout' %}">{{user.username}} Logout</a> </li>
+          {% else %}
+          <li> <a href="{% url 'jobfair_app:user_login' %}">Login</a> </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="regform">
+      <h1>Create Project</h1>
+    </div>
+    <div class="mane">
+      <form>
+        <div id="name">
+          <h2 class="name">Name</h2>
+          <input class="firstname" type="text" name="first_name"><br>
+          <label class="firstlabel">first name</label>
+          <input class="lastname" type="text" name="last_name"><br>
+          <label class="lastlabel">last name</label>
+        </div>
+
+        <h2 class="name">Project Name</h2>
+        <input class="company" type="text" name="company">
+
+        <h2 class="name">Stipend</h2>
+        <input class="stipend" type="text" name="stipend">
+
+        <h2 class="name">Skills Required</h2>
+        <input class="skills" type="text" name="skills">
+
+        <h2 class="name">Description</h2>
+        <input class="desc" type="text" name="desc">
+        <textarea class="textarea"></textarea>
+      </form>
+    </div>
+
+  </body>
+</html>
