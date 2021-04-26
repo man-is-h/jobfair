@@ -14,7 +14,8 @@ from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     #return HttpResponse("JobFair - A place to connect freelancers and employers")
-    return render(request,'index.html')
+    user = models.UserProfileInfo
+    return render(request,'index.html',{'user':user})
 
 def register(request):
 
@@ -94,26 +95,26 @@ def user_logout(request):
 
 class IndexView(TemplateView):
     template_name = 'index.html'
+    user_detail = models.UserProfileInfo
 
 class ProjectListView(ListView):
     model = models.Project
     context_object_name = 'project_list'
     template_name = 'project_list.html'
 
-class FreelancerListView(ListView):
-    model = models.Freelancer
-    context_object_name = 'freelancer_list'
-    template_name = 'freelancer_list.html'
 
 class ProjectDetailView(DetailView):
     model = models.Project
     template_name = 'project_detail.html'
     context_object_name = 'project_detail'
 
-class FreelancerDetailView(DetailView):
-    model = models.Freelancer
-    template_name = 'freelancer_detail.html'
-    context_object_name = 'freelancer_detail'
+def dashboard(request):
+    user_detail = models.UserProfileInfo
+    context = {
+        'user_detail':user_detail,
+    }
+    return render(request, 'dashboard.html',context)
+
 
 class ProjectCreateView(CreateView):
     model = models.Project

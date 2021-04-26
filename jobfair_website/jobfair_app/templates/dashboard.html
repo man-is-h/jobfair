@@ -28,14 +28,14 @@
       </header>
 
       <main>
-        <h2 class="dash-title">Welcome to {{freelancer_detail.name}}'s Dashboard</h2>
+        <h2 class="dash-title">Welcome to {{ user.first_name }}'s Dashboard</h2>
         <div class="dash-cards">
           <div class="card-single">
             <div class="card-body">
               <span class="ti-wand"></span>
               <div>
                 <h5>Rating</h5>
-                <h4>{{freelancer_detail.rating}}</h4>
+                <h4>{{ user.userprofileinfo.rating }}</h4>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@
               <span class="ti-bookmark"></span>
               <div>
                 <h5>Current Project</h5>
-                <h4>{{freelancer_detail.project}}</h4>
+                <h4>{{ user.userprofileinfo.project }}</h4>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
                     <td>ED1</td>
                     <td>Employer1</td>
                     <td>
-                      <span class="badge 
+                      <span class="badge
                       success">Success</span>
                     </td>
                   </tr>
@@ -94,7 +94,7 @@
                     <td>ED2</td>
                     <td>Employer2</td>
                     <td>
-                      <span class="badge 
+                      <span class="badge
                       warning">Pending</span>
                     </td>
                   </tr>
@@ -104,7 +104,7 @@
                     <td>ED3</td>
                     <td>Employer3</td>
                     <td>
-                      <span class="badge 
+                      <span class="badge
                       success">Success</span>
                     </td>
                   </tr>
@@ -114,7 +114,7 @@
                     <td>ED4</td>
                     <td>Employer4</td>
                     <td>
-                      <span class="badge 
+                      <span class="badge
                       success">Success</span>
                     </td>
                   </tr>
@@ -124,7 +124,7 @@
                     <td>ED5</td>
                     <td>Employer5</td>
                     <td>
-                      <span class="badge 
+                      <span class="badge
                       warning">Pending</span>
                     </td>
                   </tr>
@@ -161,7 +161,7 @@
                 <div class="bday-flex">
                   <div class="bday-img"></div>
                     <div class="bday-info">
-                      <h5>{{freelancer_detail.name}}</h5>
+                      <h5>{{ user.username }}</h5>
                       <small>Your Profile</small>
                     </div>
                 </div>

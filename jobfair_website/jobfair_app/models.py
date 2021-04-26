@@ -35,17 +35,6 @@ class Project(models.Model):
         return reverse("jobfair_app:project_detail", kwargs = {'pk':self.pk})
 
 
-class Freelancer(models.Model):
-    name = models.CharField(max_length = 256)
-    rating = models.IntegerField(
-        default = 0,
-     )
-    project = models.ForeignKey(Project, related_name = 'freelancers', on_delete=models.CASCADE,)
-
-    def __str__(self):
-        return self.name
-
-
 class UserProfileInfo(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
