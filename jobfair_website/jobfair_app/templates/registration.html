@@ -7,18 +7,47 @@
 
   </head>
   <body>
-    <form>
+    {% if registered %}
+      <h1>Thank You for registering</h1>
+      <h2><a href="{% url 'jobfair_app:index' %}"> Go to Home page </a></h2>
+    {% else %}
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+
+
       <h1>SignUp</h1>
-      <input type="text" name="" placeholder="Username">
-      <input type="text" name="" list="tech" placeholder="Want to become">
-      <datalist id="tech">
-        <option>FreeLancer</option>
-        <option>Employer</option>
-      </datalist>
-      <input type="email" name="" placeholder="Email">
-      <input type="password" name="" placeholder="Password">
-      <input type="password" name="" placeholder="Confirm Password">
+
+
+        {{ user_form.username }}
+        {{ user_form.password }}
+        {{ user_form.email }}
+
+        {{ profile_form.rating }}
+        {{ profile_form.description }}
+
+        <input type="text" name="role" list="role_list" placeholder="Want to become" id="id_role">
+        <datalist id="role_list">
+          <option value="freelancer">FreeLancer</option>
+          <option value="employer">Employer</option>
+        </datalist>
+        {{ profile_form.project }}
+          
+        {% endfor %}
       <button type="submit">SignUp</button>
     </form>
+
+      <script>
+      document.getElementById("id_username").placeholder= "Username"
+      document.getElementById("id_password").placeholder= "Password"
+      document.getElementById("id_email").placeholder= "Email"
+      document.getElementById("id_rating").placeholder= "Rating"
+      document.getElementById("id_description").placeholder= "Description"
+      </script>
+
+
+
+    {% endif %}
+
+
   </body>
 </html>

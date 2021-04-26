@@ -19,6 +19,7 @@ def index(request):
 def register(request):
 
     registered = False
+    project_list = models.Project
 
     if request.method == 'POST':
         user_form = UserForm(data = request.POST)
@@ -35,6 +36,12 @@ def register(request):
 
             if 'rating' in request.FILES:
                 profile.rating = request.FILES['rating']
+            if 'description' in request.FILES:
+                profile.description = request.FILES['description']
+            if 'role' in request.FILES:
+                profile.role = request.FILES['role']
+            if 'project' in request.FILES:
+                profile.project = request.FILES['project']
 
             profile.save()
 
@@ -47,10 +54,12 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
 
+
     return render(request, 'registration.html',
                     {'user_form':user_form,
                         'profile_form':profile_form,
-                        'registered':registered,})
+                        'registered':registered,
+                        'project_list':project_list,})
 
 
 def user_login(request):
@@ -108,12 +117,12 @@ class FreelancerDetailView(DetailView):
 
 class ProjectCreateView(CreateView):
     model = models.Project
-    fields = ('name', 'description', 'stipend')
+    fields = ('name', 'description', 'stipend','upvote','downvote','skills')
     template_name = 'project_form.html'
 
 class ProjectUpdateView(UpdateView):
     model = models.Project
-    fields = ('name','description','stipend')
+    fields = ('name','description','stipend','upvote','downvote','skills')
     template_name = 'project_form.html'
 
 class ProjectDeleteView(DeleteView):
