@@ -14,7 +14,6 @@
     <form enctype="multipart/form-data" method="post">
       {% csrf_token %}
 
-
       <h1>SignUp</h1>
 
 
@@ -32,11 +31,7 @@
         </datalist>
         {{ profile_form.project }}
           
-<<<<<<< HEAD
-        {% endif %}
-=======
         {% endfor %}
->>>>>>> da4b0b21894999f62490937cb7b690bcbe50a881
       <button type="submit">SignUp</button>
     </form>
 
