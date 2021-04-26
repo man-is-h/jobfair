@@ -10,7 +10,7 @@
         <img src="{% static 'avatar.png' %}" class="avatar">
         <h1>Login Here</h1>
         {% if wrong_credential %}
-          <h2>Invalid credentials, Please enter again</h2>
+        <h2>Invalid credentials, Please enter again</h2>
         {% endif %}
         <form action="{% url 'jobfair_app:user_login' %}" method="post" >
           {% csrf_token %}
