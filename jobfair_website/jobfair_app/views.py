@@ -74,7 +74,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                return render(request,'index.html',{'user':user})
 
             else:
                 return HttpResponse("Account not active")
@@ -114,6 +114,13 @@ def dashboard(request):
         'user_detail':user_detail,
     }
     return render(request, 'dashboard.html',context)
+
+def profile(request):
+    user_detail = models.UserProfileInfo
+    context = {
+        'user_detail':user_detail,
+    }
+    return render(request, 'profile.html',context)
 
 
 class ProjectCreateView(CreateView):

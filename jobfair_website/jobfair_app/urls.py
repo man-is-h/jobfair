@@ -27,6 +27,7 @@ urlpatterns = [
     path('project_update/<pk>/',views.ProjectUpdateView.as_view(), name = 'project_update'),
     path('project_delete/<pk>/',views.ProjectDeleteView.as_view(), name = 'project_delete'),
     path('dashboard',views.dashboard, name = 'dashboard'),
+    path('profile',views.profile, name = 'profile'),
     path('register', views.register, name='register'),
     path('logout', views.user_logout, name='logout'),
     path('login', views.user_login, name='user_login'),
