@@ -14,7 +14,8 @@ from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     #return HttpResponse("JobFair - A place to connect freelancers and employers")
-    return render(request,'index.html')
+    user = models.UserProfileInfo
+    return render(request,'index.html',{'user':user})
 
 def register(request):
 
