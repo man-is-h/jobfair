@@ -20,7 +20,8 @@
         {{ user_form.username }}
         {{ user_form.password }}
         {{ user_form.email }}
-
+        {{ user_form.first_name }}
+        {{ user_form.last_name }}
         {{ profile_form.rating }}
         {{ profile_form.description }}
 
@@ -30,12 +31,7 @@
           <option value="employer">Employer</option>
         </datalist>
         {{ profile_form.project }}
-<<<<<<< HEAD
 
-=======
-          
-        {% endfor %}
->>>>>>> 4a83f8210422044d92b677933425c2835f35ccaa
       <button type="submit">SignUp</button>
     </form>
 
@@ -43,6 +39,8 @@
       document.getElementById("id_username").placeholder= "Username"
       document.getElementById("id_password").placeholder= "Password"
       document.getElementById("id_email").placeholder= "Email"
+      document.getElementById("id_first_name").placeholder= "First Name"
+      document.getElementById("id_last_name").placeholder= "Last Name"
       document.getElementById("id_rating").placeholder= "Rating"
       document.getElementById("id_description").placeholder= "Description"
       </script>
