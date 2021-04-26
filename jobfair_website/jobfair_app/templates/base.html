@@ -11,6 +11,7 @@
       <ul>
         <li> <a class = "navbar-brand" href="{% url 'jobfair_app:index' %}">Index</a> </li>
         <li> <a class = "navbar-link" href="{% url 'jobfair_app:project_list' %}">Projects</a> </li>
+        <li> <a class = "navbar-link" href="{% url 'jobfair_app:project_create' %}">Create Project</a> </li>
         <li> <a class = "navbar-link" href="{% url 'jobfair_app:freelancer_list' %}">Freelancers</a> </li>
         <li> <a class = "navbar-link" href="{% url 'jobfair_app:register' %}">Register</a> </li>
         <li> <a class = "navbar-link" href="{% url 'admin:index' %}">Admin</a> </li>
@@ -24,10 +25,12 @@
       </ul>
 
     </nav>
-    <div class="container">
+
       {% block body_block %}
       {% endblock %}
-    </div>
 
+    {% block script_block %}
+
+    {% endblock %}
   </body>
 </html>
