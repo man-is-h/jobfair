@@ -1,10 +1,56 @@
-{% extends "base.html" %}
-{% block body_block %}
-  <h1>Delete {{project.name}} ??</h1>
-  <form class="" method="post">
-    {% csrf_token %}
-    <input class="btn btn-danger" type="submit" name="" value="Delete">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delete.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="navbar">
+        <a href="{% url 'jobfair_app:index' %}">
+          <img class="logo" src="{% static 'jb.jpg' %}">
+        </a>
+        <ul>
+    
+    
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'jobfair_app:dashboard' %}"> Dashboard </a></li>
+    
+          {% if user.userprofileinfo.role == 'employer' %}
+            <li><a class="active" href="{% url 'jobfair_app:project_create' %}">Create Project</a></li>
+          {% endif %}
+          <li> <a href="{% url 'jobfair_app:logout' %}">{{user.username}} Logout</a> </li>
+          {% else %}
+          <li><a href="{% url 'jobfair_app:register' %}">Register</a></li>
+          <li> <a href="{% url 'jobfair_app:user_login' %}">Login</a> </li>
+    
+          {% endif %}
+        </ul>
+      </nav>
+      <div class="regform">
+        <h1>Delete Project ?</h1>
+      </div>
 
-    <a href="{% url 'jobfair_app:project_detail' pk=project.pk %}">Cancel</a>
-  </form>
-{% endblock %}
+      <div class="Sure">
+        <h2>Are you sure you want to delete this project {{project.name}} ?</h2>
+      </div>
+
+      <form class="" method="post">
+        {% csrf_token %}
+        <div class="buttons">
+          <button class="btn" type="submit">Delete</button>        
+        </div>
+        
+        <div class="buttons1">
+          <a href="{% url 'jobfair_app:project_detail' pk=project.pk %}">
+            <button class="btn" type="button">Cancel</button>
+          </a>
+        </div>
+      </form>
+
+      </div>
+  </body>
+</html>>
