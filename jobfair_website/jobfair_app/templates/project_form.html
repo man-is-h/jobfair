@@ -23,13 +23,15 @@
           {% endif %}
         </ul>
       </nav>
-    
+
 
     <div class="regform">
       <h1>Create Project</h1>
     </div>
     <div class="main">
-      <form>
+      <form method="post">
+        {% csrf_token %}
+      <!--
         <div id="name">
           <h2 class="name">Name</h2>
           <input class="firstname" type="text" name="first_name"><br>
@@ -37,19 +39,25 @@
           <input class="lastname" type="text" name="last_name"><br>
           <label class="lastlabel">last name</label>
         </div>
-
+-->
         <h2 class="name">Project Name</h2>
-        <input class="company" type="text" name="company">
+        {{form.name}}
 
         <h2 class="name">Stipend</h2>
-        <input class="stipend" type="text" name="stipend">
+        {{form.stipend}}
 
         <h2 class="name">Skills Required</h2>
-        <input class="skills" type="text" name="skills">
+        {{form.skills}}
 
         <h2 class="name">Description</h2>
-        <textarea class="textarea"></textarea>
+        {{form.description}}
 
+        <h2 class="name">Upvote</h2>
+        {{form.upvote}}
+
+        <h2 class="name">Downvote</h2>
+        {{form.downvote}}
+<!--
         <h2 id="student">Vote</h2>
         <label class="radio">
           <input class="radio-one" type="radio" checked="checked" name="">
@@ -61,11 +69,21 @@
           <span class="checkmark"></span>
           Downvote
         </label>
-
+-->
         <button type="submit">Submit</button>
 
       </form>
     </div>
   </div>
+
+  <script>
+  document.getElementById("id_name").classList.add("company")
+  document.getElementById("id_stipend").classList.add("stipend")
+  document.getElementById("id_skills").classList.add("skills")
+  document.getElementById("id_skills").classList.add("textarea")
+  document.getElementById("id_description").classList.add("textarea")
+  document.getElementById("id_upvote").classList.add("stipend")
+  document.getElementById("id_downvote").classList.add("stipend")
+  </script>
   </body>
 </html>
