@@ -1,26 +1,79 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Project details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project_detail.css' %}">
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="navbar">
+        <a href="{% url 'jobfair_app:index' %}">
+          <img class="logo" src="{% static 'jb.jpg' %}">
+        </a>
+        <ul>
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'jobfair_app:dashboard' %}"> Dashboard </a></li>
 
-{% block body_block %}
-  <div class="jumbotron">
-    <h1>Welcome to Project Detail Page</h1>
-    <h2>Project Details:</h2>
-    <p>Name: {{project_detail.name}}</p>
-    <p>stipend: {{project_detail.stipend}}</p>
-    <p>description:</p>
-    <p>{{project_detail.description}}</p>
+          {% if user.userprofileinfo.role == 'employer' %}
+            <li><a class="active" href="{% url 'jobfair_app:project_create' %}">Create Project</a></li>
+          {% endif %}
+          <li> <a href="{% url 'jobfair_app:logout' %}">{{user.username}} Logout</a> </li>
+          {% else %}
+          <li><a href="{% url 'jobfair_app:register' %}">Register</a></li>
+          <li> <a href="{% url 'jobfair_app:user_login' %}">Login</a> </li>
 
-    <h2>Project alloted to:</h2>
-
-    {% for freelancer in project_detail.freelancers.all %}
-      <p>{{freelancer.name}} with rating {{freelancer.rating}}</p>
-    {% endfor %}
-
-    <div class="container">
-      <p> <a class = 'btn btn-warning' href="{% url 'jobfair_app:project_update' pk=project_detail.pk %}"> Update</a> </p>
+          {% endif %}
+        </ul>
+      </nav>
+      <div class="regform">
+        <h1>Project Details</h1>
+      </div>
     </div>
+      <div class="container">
+        <div class="card">
+          <div class="images">
+            
+          </div>
+          <div class="infos">
+            <h1>{{project_detail.name}}</h1>
 
-    <div class="container">
-      <p> <a class = 'btn btn-danger' href="{% url 'jobfair_app:project_delete' pk=project_detail.pk %}"> Delete</a> </p>
+            <div class="name">
+              <h2>Alloted to:</h2>
+              <h2>{{freelancer.name}} with rating {{freelancer.rating}}</h2>
+            </div>
+
+            <div class="price">
+              <h3>Stipend:     {{project_detail.stipend}} $</h3>
+            </div>
+
+            <div class="more-infos">
+              <h5>Description</h5>
+            </div>
+
+            <div class="info-content">
+              <p>{{project_detail.description}}</p>
+            </div>
+
+            <div class="buttons">
+              <a href="{% url 'jobfair_app:project_update' pk=project_detail.pk %}">
+                <button type="button"><i class="fas fa-pen"></i>UPDATE</button>
+              </a>
+
+              <a href="{% url 'jobfair_app:project_delete' pk=project_detail.pk %}">
+                <button type="button"><i class="fas fa-trash"></i>DELETE</button>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
     </div>
-  </div>
-{% endblock %}
+  </body>
+</html>
