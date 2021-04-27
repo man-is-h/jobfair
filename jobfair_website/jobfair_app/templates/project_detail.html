@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     {% load static %}
     <link rel="stylesheet" href="{% static 'project_detail.css' %}">
-    
+
   </head>
   <body>
     <div class="wrapper">
@@ -39,14 +39,15 @@
       <div class="container">
         <div class="card">
           <div class="images">
-            
+
           </div>
           <div class="infos">
             <h1>{{project_detail.name}}</h1>
 
             <div class="name">
               <h2>Alloted to:</h2>
-              <h2>{{freelancer.name}} with rating {{freelancer.rating}}</h2>
+
+
             </div>
 
             <div class="price">
@@ -60,8 +61,9 @@
             <div class="info-content">
               <p>{{project_detail.description}}</p>
             </div>
-
+            {% if user.userprofileinfo.role == 'employer' %}
             <div class="buttons">
+
               <a href="{% url 'jobfair_app:project_update' pk=project_detail.pk %}">
                 <button type="button"><i class="fas fa-pen"></i>UPDATE</button>
               </a>
@@ -71,6 +73,8 @@
               </a>
 
             </div>
+            {% endif %}
+            <p>To add project go to <a href="{% url 'jobfair_app:profile' %}">profile</a> and select {{project_detail.name}}</p>
           </div>
         </div>
 
