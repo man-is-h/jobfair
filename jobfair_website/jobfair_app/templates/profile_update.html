@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignUp</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
+
+  </head>
+  <body>
+
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+
+      <h1>UPDATE</h1>
+
+
+
+        {{ p_form.rating }}
+        {{ p_form.description }}
+
+        <input type="text" name="role" list="role_list" placeholder="Want to become" id="id_role">
+        <datalist id="role_list">
+          <option value="freelancer">FreeLancer</option>
+          <option value="employer">Employer</option>
+        </datalist>
+          {{ p_form.project }}
+
+
+
+
+      <button type="submit">SignUp</button>
+    </form>
+
+      <script>
+      document.getElementById("id_username").placeholder= "Username"
+      document.getElementById("id_password").placeholder= "Password"
+      document.getElementById("id_email").placeholder= "Email"
+      document.getElementById("id_first_name").placeholder= "First Name"
+      document.getElementById("id_last_name").placeholder= "Last Name"
+      document.getElementById("id_rating").placeholder= "Rating"
+      document.getElementById("id_description").placeholder= "Description"
+      </script>
+
+
+
+
+
+  </body>
+</html>
