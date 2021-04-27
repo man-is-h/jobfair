@@ -122,7 +122,6 @@ def profile(request):
     }
     return render(request, 'profile.html',context)
 
-
 class ProjectCreateView(CreateView):
     model = models.Project
     fields = ('name', 'description', 'stipend','upvote','downvote','skills')
