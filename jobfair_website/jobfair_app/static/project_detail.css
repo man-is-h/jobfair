@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    
+    
+}
+
+.container{
+    height: 80vh;
+    width: 80vw;
+    background-color: #5fdffc;
+    border-radius: 20px;
+    margin-top: -650px;
+    margin-left: 100px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    border-radius: 8px;
+    display: flex;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.4);
+}
+
+.card .images,
+.card .infos{
+    width: 50%;
+}
+
+.infos .price{
+    display: flex;
+}
+
+.infos .name{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.infos .more-infos{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.info-content{
+    font-size: 16px;
+
+}
+
+.buttons{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button{
+    width: 150px;
+    height: 40px;
+    font: inherit;
+    font-weight: bold;
+    border: 2px solid #5fdffc;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.buttons button:nth-child(1) i{
+    margin-right: 20px;
+}
+
+.buttons button:hover{
+    color: white;
+    background-color: #5fdffc;
+}
+
+.images{
+    background-image: url(pj.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 50px;
+}
+
+.regform{
+    width: 64vw;
+    background-color: rgba(0,0,0,0.6);
+    margin-left: 223px;
+    color: #FFFFFF;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 5px 5px;
+    margin-top: 63px;
+    display: inline-block;
+}
+
+.wrapper{
+    background: url(b1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.navbar{
+    height: 80px;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.logo{
+    width: 140px;
+    height: 70px;
+    padding: 5px 40px;
+}
+
+.navbar ul{
+    float: right;
+    margin-right: 20px;  
+}
+
+.navbar ul li{
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 6px 13px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    background: red;
+    border-radius: 2px;
+}
+
