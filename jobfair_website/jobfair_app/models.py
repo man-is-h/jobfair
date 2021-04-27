@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Project(models.Model):
     name = models.CharField(max_length = 256)
-
     description = models.TextField(
         default = ' ',
         max_length=500,
@@ -38,7 +37,6 @@ class Project(models.Model):
 class UserProfileInfo(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
-
     #aditional
     rating = models.IntegerField(default = 0,)
     description = models.CharField(
