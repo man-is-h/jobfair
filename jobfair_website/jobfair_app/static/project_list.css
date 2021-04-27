@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.stipend{
+    color: black;
+    font-weight: 500;
+    margin-left: 300px;
+}
+
+.prj{
+    color: black;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.bdg{
+    color: black;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+.stp{
+    color: black;
+    font-weight: 700;
+    margin-left: 300px;
+    padding-top: 10px;
+}
+.project ul{
+    position: relative;
+    width: 650px;
+    margin: 100px auto 0;
+    margin-top: 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.project ul li{
+    display: flex;
+    background: rgba(255,255,255,.1);
+    padding: 10px 20px;
+    color: #000;
+    margin: 5px 0;
+    transition: .5s;
+}
+
+.project a{
+    text-decoration: none;
+    font-family: 'Roboto' sans-serif;
+    color: black;
+    font-weight: 500;
+}
+
+.project a:hover {
+    color: darkblue; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.project ul li:nth-child(1)
+{
+    background: rgba(255,255,255,.6);
+}
+
+.project ul li:nth-child(2)
+{
+    background: rgba(255,255,255,.4);
+}
+
+.project ul li:nth-child(3)
+{
+    background: rgba(255,255,255,.2);
+}
+
+.project ul li span:nth-child(1){
+    width: 30px;
+}
+
+
+.project ul li span:nth-child(3){
+    width: 500px;
+    text-align: right;
+}
+
+.project ul li span:nth-child(4){
+    width: 500px;
+    text-align: right;
+}
+
+.project ul li:hover{
+    transform: scale(1.06);
+    background: #ff3772;
+}
+
+
+.wrapper{
+    background: url(b1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.navbar{
+    height: 80px;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.logo{
+    width: 140px;
+    height: 70px;
+    padding: 5px 40px;
+}
+
+.navbar ul{
+    float: right;
+    margin-right: 20px;  
+}
+
+.navbar ul li{
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 6px 13px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    transition: .4s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    background: red;
+    border-radius: 2px;
+}
+
+.regform{
+    width: 650px;
+    background-color: rgba(0,0,0,0.6);
+    margin-left: 443px;
+    color: #FFFFFF;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    margin-top: 50px;
+}
