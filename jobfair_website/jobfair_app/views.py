@@ -5,7 +5,7 @@ from django.views.generic import (View, TemplateView,
                                     CreateView, UpdateView,
                                     DeleteView)
 from jobfair_app import models
-from jobfair_app.forms import UserForm, UserProfileInfoForm, ProfileUpdateForm
+from jobfair_app.forms import UserForm, UserProfileInfoForm
 
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -129,22 +129,9 @@ class ProjectCreateView(CreateView):
 
 class ProjectUpdateView(UpdateView):
     model = models.Project
-    fields = ('project','description','stipend','upvote','downvote','skills')
+    fields = ('name','description','stipend','upvote','downvote','skills')
     template_name = 'project_form.html'
 
-@login_required
-def update_profile(request):
-    if request.method == 'POST':
-        p_form = ProfileUpdateForm(request.POST)
-        if p_form.is_valid():
-            p_form.save()
-            messages.success(request,'Your Profile has been updated!')
-            return redirect('profile')
-    else:
-        p_form = ProfileUpdateForm(instance=request.user)
-
-    context={'p_form': p_form,}
-    return render(request, 'profile_update.html',context )
 
 class ProjectDeleteView(DeleteView):
     model = models.Project

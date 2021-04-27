@@ -31,5 +31,4 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('logout', views.user_logout, name='logout'),
     path('login', views.user_login, name='user_login'),
-    path('user_update',views.update_profile, name = 'user_update'),
 ]

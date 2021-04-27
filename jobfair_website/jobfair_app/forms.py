@@ -13,8 +13,3 @@ class UserProfileInfoForm(forms.ModelForm):
     class Meta():
         model = UserProfileInfo
         fields = ('rating','description', 'role', 'project')
-
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta():
-        model=UserProfileInfo
-        fields = ('rating','description', 'role', 'project')
