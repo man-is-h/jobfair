@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+
 # Create your models here.
 class Project(models.Model):
     name = models.CharField(max_length = 256)
@@ -36,24 +37,24 @@ class Project(models.Model):
 
 class UserProfileInfo(models.Model):
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE,)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     #aditional
-    rating = models.IntegerField(default = 0,)
+    #rating = models.IntegerField(default = 0,)
     description = models.CharField(
                default = '',
                max_length = 200
                )
 
     class Role(models.TextChoices):
-        FREELANCER = 'freelancer', _('freelancer')
-        EMPLOYER = 'employer', _('employer')
+        FREELANCER = 'FLR', _('Freelancer')
+        EMPLOYER = 'EMP', _('Employer')
 
     role=models.CharField(
-        max_length=100,
+        max_length=10,
         choices=Role.choices,
         default=Role.FREELANCER,
     )
-    project = models.ForeignKey(Project, related_name = 'users', on_delete=models.CASCADE,default = 1)
+    project = models.ForeignKey(Project, related_name = 'users', on_delete=models.CASCADE, default = 1)
 
     def __str__(self):
         return self.user.username

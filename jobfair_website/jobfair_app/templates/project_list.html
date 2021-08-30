@@ -1,49 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Project List</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'project_list.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
-  </head>
-  <body>
-    <div class="wrapper">
-      <nav class="navbar">
-        <a href="{% url 'jobfair_app:index' %}">
-          <img class="logo" src="{% static 'jb.jpg' %}">
-        </a>
-        <ul>
+{% extends "base.html" %}
+{% load static %}
 
+{% block style %}
+<link rel="stylesheet" href="{% static 'project_list.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+{% endblock style %}
 
-          <li><a href="{% url 'admin:index' %}">Admin</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'jobfair_app:dashboard' %}"> Dashboard </a></li>
+{% block title %}Projects{% endblock title %}
 
-          {% if user.userprofileinfo.role == 'employer' %}
-            <li><a class="active" href="{% url 'jobfair_app:project_create' %}">Create Project</a></li>
-          {% endif %}
-          <li> <a href="{% url 'jobfair_app:logout' %}">{{user.username}} Logout</a> </li>
-          {% else %}
-          <li><a href="{% url 'jobfair_app:register' %}">Register</a></li>
-          <li> <a href="{% url 'jobfair_app:user_login' %}">Login</a> </li>
-
-          {% endif %}
-        </ul>
-      </nav>
-
-      <div class="regform">
-        <h1>All Projects</h1>
-      </div>
-
-      <div class="project">
-        <ul>
-          <li>
-            <span class="prj">Project_Name</span>
-            <span class="stp">Stipend</span>
-            <span class="bdg">Votes</span>
-          </li>
-        </ul>
+{% block body %}
+<div class="wrapper">
+  <div class="project">
+    <h1>Projects</h1>
+    <ul>
+      <li>
+        <span class="prj">Project</span>
+        <span class="stp">Stipend</span>
+        <span class="bdg">Votes</span>
+      </li>
+    </ul>
     <ul>
       {% for project in project_list %}
       <li>
@@ -54,6 +29,5 @@
       {% endfor %}
     </ul>
   </div>
-    </div>
-  </body>
-</html>
+</div>
+{% endblock body %}

@@ -12,43 +12,28 @@
     height: 100vh;
 }
 
-.navbar{
-    height: 80px;
-    width: 100%;
-    background: rgba(0,0,0,0.4);
-}
-
 .logo{
     width: 140px;
     height: 70px;
     padding: 5px 40px;
 }
 
-.navbar ul{
-    float: right;
-    margin-right: 20px;  
-}
-
 .navbar ul li{
-    list-style: none;
-    margin: 0 8px;
-    display: inline-block;
-    line-height: 80px;
+    display: list-item;
+    line-height: 50px;
 }
 
 .navbar ul li a{
-    text-decoration: none;
     color: white;
-    padding: 6px 13px;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    transition: .4s;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 .navbar ul li a.active,
 .navbar ul li a:hover{
-    background: red;
-    border-radius: 2px;
+    background: #BBE1FA;
+    transition: 0.5s;
 }
 
 .wrapper .center{
@@ -57,49 +42,27 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: sans-serif;
-    user-select: none;
+    text-align: center;
 }
 
 .center h1{
     color: white;
     font-size: 70px;
-    font-weight: bold;
     width: 900px;
-    text-align: center;
-}
-
-.center h2{
-    color: rgb(245, 241, 43);
-    font-size: 50px;
-    font-weight: bold;
-    width: 885px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.center .buttons{
-    margin: 35px 280px;
-
 }
 
 .buttons button{
     height: 50px;
-    width: 150px;
-    font-size: 18px;
+    width: 180px;
+    font-size: 20px;
     font-weight: bold;
-    color: #ffb3b3;
+    color: #ffffff;
     background: red;
-    border: 1px solid #cc0000;
-    outline: none;
+    outline: auto;
     cursor: pointer;
-    border-radius: 25px;
-    transition: .5s;
-}
-
-.buttons .btn{
-    margin-left: 25px;
+    border-radius: 0px;
 }
 
 .buttons button:hover{
-    background: #cc0000;
+    background: #BBE1FA;
 }

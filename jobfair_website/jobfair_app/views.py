@@ -22,9 +22,10 @@ def register(request):
     registered = False
     project_list = models.Project
 
-    if request.method == 'POST':
-        user_form = UserForm(data = request.POST)
-        profile_form = UserProfileInfoForm(data = request.POST)
+    if request.method=="POST":
+
+        user_form = UserForm(request.POST)
+        profile_form = UserProfileInfoForm(request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
 
@@ -32,17 +33,17 @@ def register(request):
             user.set_password(user.password)
             user.save()
 
-            profile = profile_form.save(commit = False)
+            profile = profile_form.save(commit=False)
             profile.user = user
 
-            if 'rating' in request.FILES:
-                profile.rating = request.FILES['rating']
-            if 'description' in request.FILES:
-                profile.description = request.FILES['description']
-            if 'role' in request.FILES:
-                profile.role = request.FILES['role']
-            if 'project' in request.FILES:
-                profile.project = request.FILES['project']
+            #if 'rating' in request.FILES:
+                #profile.rating = request.FILES['rating']
+            #if 'description' in request.POST:
+            #    profile.description = request.POST['description']
+            #if 'role' in request.POST:
+            #    profile.role = request.POST['role']
+            #if 'project' in request.POST:
+            #    profile.project = project_list[request.POST['project']]
 
             profile.save()
 
